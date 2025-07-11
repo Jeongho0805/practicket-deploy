@@ -1,0 +1,11 @@
+image:
+  repository: parkjeongho/practicket
+  pullPolicy: IfNotPresent
+  tag: ""
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
