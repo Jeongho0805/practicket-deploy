@@ -1,2 +1,4 @@
 image:
   tag: ""
+env:
+  SPRING_PROFILES_ACTIVE: "prod"

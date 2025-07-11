@@ -1,2 +1,4 @@
 image:
   tag: "20250706070323"
+env:
+  SPRING_PROFILES_ACTIVE: "stage"
