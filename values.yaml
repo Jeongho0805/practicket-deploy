@@ -1,8 +1,3 @@
-image:
-  repository: parkjeongho/practicket
-  pullPolicy: IfNotPresent
-  tag: ""
-
 replicaCount: 1
 
 service:
