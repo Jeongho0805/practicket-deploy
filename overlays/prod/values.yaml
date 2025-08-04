@@ -1,6 +1,6 @@
 image:
   repository: parkjeongho/practicket
   pullPolicy: IfNotPresent
-  tag: "20250731151248"
+  tag: "20250804131536"
 env:
   SPRING_PROFILES_ACTIVE: "prod"
