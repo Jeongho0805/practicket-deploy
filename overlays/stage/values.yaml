@@ -1,6 +1,6 @@
 image:
   repository: parkjeongho/practicket-stage
   pullPolicy: IfNotPresent
-  tag: "20250804131156"
+  tag: "20250805105935"
 env:
   SPRING_PROFILES_ACTIVE: "stage"
