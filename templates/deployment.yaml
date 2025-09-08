@@ -24,3 +24,17 @@ spec:
               value: "{{ .Values.env.SPRING_PROFILES_ACTIVE }}"
           ports:
             - containerPort: {{ .Values.service.port }}
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3
