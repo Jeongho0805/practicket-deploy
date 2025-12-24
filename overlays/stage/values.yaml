@@ -7,7 +7,7 @@ image:
 
 env:
   SPRING_PROFILES_ACTIVE: "stage"
-  JAVA_TOOL_OPTIONS: "-XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=70.0 -XX:MaxMetaspaceSize=256m"
+  JAVA_TOOL_OPTIONS: "-XX:InitialRAMPercentage=40.0 -XX:MaxRAMPercentage=60.0 -XX:MaxMetaspaceSize=256m"
 
 resources:
   requests:
