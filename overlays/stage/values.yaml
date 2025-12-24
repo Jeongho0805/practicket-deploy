@@ -1,6 +1,23 @@
+replicaCount: 2
+
 image:
   repository: parkjeongho/practicket-stage
   pullPolicy: IfNotPresent
   tag: "20251224045650"
+
 env:
   SPRING_PROFILES_ACTIVE: "stage"
+  JAVA_TOOL_OPTIONS: "-XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=70.0 -XX:MaxMetaspaceSize=256m"
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    memory: 2Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
