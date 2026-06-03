@@ -1,6 +1,22 @@
+replicaCount: 2
+
 image:
   repository: parkjeongho/practicket
   pullPolicy: IfNotPresent
   tag: "20251207045310"
 env:
   SPRING_PROFILES_ACTIVE: "prod"
+  JAVA_TOOL_OPTIONS: "-XX:InitialRAMPercentage=50.0 -XX:MaxRAMPercentage=70.0 -XX:MaxMetaspaceSize=256m"
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    memory: 3Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
