@@ -21,3 +21,8 @@ autoscaling:
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 80
+
+# 광고 배너 이미지: stage는 호스트 경로를 분리해 prod 이미지와 섞이지 않게 한다
+adImages:
+  hostPath: /data/stage-practicket/ad-images
+  mountPath: /data/practicket/ad-images

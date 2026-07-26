@@ -20,3 +20,8 @@ autoscaling:
   minReplicas: 2
   maxReplicas: 6
   targetCPUUtilizationPercentage: 70
+
+# 광고 배너 이미지: 호스트 디렉터리를 레플리카가 공유 (mountPath는 앱 기본값과 동일)
+adImages:
+  hostPath: /data/practicket/ad-images
+  mountPath: /data/practicket/ad-images

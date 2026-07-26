@@ -54,3 +54,17 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 3
             failureThreshold: 3
+          {{- if .Values.adImages }}
+          volumeMounts:
+            - name: ad-images
+              mountPath: {{ .Values.adImages.mountPath }}
+          {{- end }}
+      {{- if .Values.adImages }}
+      volumes:
+        # 광고 배너 이미지 저장소. 파드 로컬 디스크면 레플리카끼리 안 보이고 재배포 시 사라지므로
+        # 노드(hoya) 호스트 디렉터리를 모든 레플리카가 공유한다.
+        - name: ad-images
+          hostPath:
+            path: {{ .Values.adImages.hostPath }}
+            type: DirectoryOrCreate
+      {{- end }}
