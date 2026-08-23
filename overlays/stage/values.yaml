@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: parkjeongho/practicket-stage
   pullPolicy: IfNotPresent
-  tag: "20260823020101"
+  tag: "20260823062030"
 
 env:
   SPRING_PROFILES_ACTIVE: "stage"
