@@ -54,17 +54,18 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 3
             failureThreshold: 3
-          {{- if .Values.adImages }}
+          {{- if .Values.appData }}
           volumeMounts:
-            - name: ad-images
-              mountPath: {{ .Values.adImages.mountPath }}
+            - name: app-data
+              mountPath: {{ .Values.appData.mountPath }}
           {{- end }}
-      {{- if .Values.adImages }}
+      {{- if .Values.appData }}
       volumes:
-        # 광고 배너 이미지 저장소. 파드 로컬 디스크면 레플리카끼리 안 보이고 재배포 시 사라지므로
-        # 노드(hoya) 호스트 디렉터리를 모든 레플리카가 공유한다.
-        - name: ad-images
+        # 운영 중 쌓이는 파일 저장소(광고 배너·블로그 이미지 등). 파드 로컬 디스크면
+        # 레플리카끼리 안 보이고 재배포 시 사라지므로 노드(hoya) 호스트 디렉터리를 공유한다.
+        # 하위 폴더가 아니라 부모를 붙이는 이유는, 종류가 늘 때마다 볼륨을 새로 잡지 않기 위해서다.
+        - name: app-data
           hostPath:
-            path: {{ .Values.adImages.hostPath }}
+            path: {{ .Values.appData.hostPath }}
             type: DirectoryOrCreate
       {{- end }}
